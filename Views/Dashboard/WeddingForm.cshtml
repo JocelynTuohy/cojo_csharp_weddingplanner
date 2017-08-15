@@ -1,0 +1,42 @@
+@{
+  ViewData["Title"] = "Create a Wedding";
+}
+
+@model weddingplanner.Models.Wedding
+
+<nav>
+  <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+  <a asp-controller="Login" asp-action="Logoff">Log Out</a>
+</nav>
+
+<form asp-controller="Dashboard" asp-action="Create" method="post">
+  <fieldset>
+    <legend>Plan Your Wedding</legend>
+    <p>
+      <label asp-for="Proposer"></label>
+      <input asp-for="Proposer">
+      <span asp-validation-for="Proposer"></span>
+    </p>
+    <p>
+      <label asp-for="Proposee"></label>
+      <input asp-for="Proposee">
+      <span asp-validation-for="Proposee"></span>
+    </p>
+    <p>
+      <label asp-for="WeddingDate"></label>
+      <input asp-for="WeddingDate">
+      <span asp-validation-for="WeddingDate"></span>
+    </p>
+    <p>
+      <label asp-for="Address"></label>
+      <input asp-for="Address">
+      <span asp-validation-for="Address"></span>
+    </p>
+    <button>Create</button>
+  </fieldset>
+</form>
+
+@if (ViewBag.message != null)
+{
+  <p>@ViewBag.message</p>
+}

@@ -1,0 +1,20 @@
+@{
+  ViewData["Title"] = "Create a Wedding";
+}
+
+<nav>
+  <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+  <a asp-controller="Login" asp-action="Logoff">Log Out</a>
+</nav>
+
+<h1>The Wedding of @ViewBag.ThisWedding.Proposer and @ViewBag.ThisWedding.Proposee</h1>
+<h2>Date: @ViewBag.ThisWedding.WeddingDate</h2>
+<h3>Guests:</h3>
+<ul>
+  @foreach (var guest in @ViewBag.ThisWedding.RSVPs)
+  {
+    <li>@guest.User.FirstName @guest.User.LastName</li>
+  }
+</ul>
+
+<!-- GOOGLE MAP API STUFF -->

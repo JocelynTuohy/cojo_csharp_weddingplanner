@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Login or Register";
+}
+
+@model weddingplanner.Models.RegisterViewModel
+
+<form action="Login" method="post">
+    <fieldset>
+        <legend>Login</legend>
+        <p>
+            <label for="LogEmail">Email</label>
+            <input type="text" name="LogEmail" id="LogEmail"/>
+        </p>
+        <p>
+            <label for="LogPassword">Password</label>
+            <input type="password" name="LogPassword" id="LogPassword"/>
+        </p>
+        <button>Login</button>
+    </fieldset>
+</form>
+
+<form asp-controller="Login" asp-action="Register" method="post">
+    <fieldset>
+        <legend>Registration</legend>
+        <p>
+            <span asp-validation-for="FirstName"></span>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName">
+        </p>
+        <p>
+            <span asp-validation-for="LastName"></span>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName">
+        </p>
+        <p>
+            <span asp-validation-for="Email"></span>
+            <label asp-for="Email"></label>
+            <input asp-for="Email">
+        </p>
+        <p>
+            <span asp-validation-for="Password"></span>
+            <label asp-for="Password"></label>
+            <input asp-for="Password">
+        </p>
+        <p>
+            <span asp-validation-for="Confirm"></span>
+            <label asp-for="Confirm"></label>
+            <input asp-for="Confirm">
+        </p>
+        <button>Register</button>
+    </fieldset>
+</form>
+
+@if (ViewBag.message != null)
+{
+    <p>@ViewBag.message</p>
+}
